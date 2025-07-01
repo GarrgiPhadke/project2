@@ -1,0 +1,100 @@
+{% block content %}
+
+<style type="text/css">
+    body {
+        background-image: url('/static/logbg2.jpg'); /* Path to your background image */
+        /* Additional styling for the background */
+        background-size: 700px 700px; /* Set the background image size to 700px by 700px */
+        background-position: left -100px bottom -100px; /* Position the background image */
+        background-repeat: no-repeat; /* Prevent background from repeating */
+      }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .form-signin {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: #ffffff; /* White */
+    border: 1px solid blue; /* Light Gray */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-signin label {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .form-signin .form-control {
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0; /* Light Gray */
+    border-radius: 4px;
+  }
+  .form-signin .form-control:focus {
+    border-color: #4285f4; /* Google Blue */
+    box-shadow: 0 0 0 0.2rem rgba(66, 133, 244, 0.25); /* Google Blue */
+  }
+
+  .error-message {
+    color: #d32f2f; /* Red */
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .btn-primary {
+    background-color: #4285f4; /* Google Blue */
+    border-color: #4285f4; /* Google Blue */
+    color: #ffffff; /* White */
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: auto; /* Center the button */
+  }
+
+  .btn-primary:hover {
+    background-color: #3367d6; /* Darker Google Blue */
+    border-color: #3367d6; /* Darker Google Blue */
+  }
+
+  h2{
+    text-align: center;
+  }
+
+</style>
+
+<div class="container">
+  <form class="form-signin" method="post">{% csrf_token %}
+    <h2 class="text-center mb-4">Login</h2>
+    <div class="mb-3">
+      <label for="inputEmail" class="form-label">Email:</label>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Enter your email address" required autofocus>
+    </div>
+    <div class="mb-3">
+      <label for="inputPassword" class="form-label">Password:</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Enter your password" required>
+    </div>
+    {% for field in login_form %}
+        <p class="error-message">
+          {% for error in field.errors %}
+            {{ error }}
+          {% endfor %}
+        </p>
+    {% endfor %}
+    {% if login_form.non_field_errors %}
+      <p class="error-message">{{login_form.non_field_errors}}</p>
+    {% endif %}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+  </form>
+</div>
+
+{% endblock content %}

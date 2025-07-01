@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+    body {
+        background-image: url('/static/logbg2.jpg'); /* Path to your background image */
+        /* Additional styling for the background */
+        background-size: 700px 700px; /* Set the background image size to 700px by 700px */
+        background-position: left -100px bottom -100px; /* Position the background image */
+        background-repeat: no-repeat; /* Prevent background from repeating */
+      }
+
+    .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 30px;
+        margin: auto;
+        background-color: white; /* Light Pink */
+        border: 1px solid #f48fb1; /* Lighter Pink */
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 15px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border: 2px solid #f48fb1; /* Lighter Pink */
+        border-radius: 8px;
+    }
+
+    .form-signin .form-control:focus {
+        border-color: #f06292; /* Darker Pink */
+    }
+
+    .h3 {
+        text-align: center;
+        color: #d81b60; /* Dark Pink */
+        margin-bottom: 30px;
+    }
+
+    .btn-primary {
+        background-color: #ec407a; /* Dark Pink */
+        border-color: #ec407a; /* Dark Pink */
+    }
+
+    .btn-primary:hover {
+        background-color: #d81b60; /* Light Pink */
+        border-color: #d81b60; /* Light Pink */
+    }
+
+    label {
+        color: #d81b60; /* Dark Pink */
+        font-weight: bold;
+    }
+
+    .error-message {
+        color: #d81b60; /* Dark Pink */
+    }
+</style>
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <form class="form-signin" method="post">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 font-weight-normal">Account</h1>
+        <label for="inputEmail">Email:</label>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required
+            autofocus value="{{account_form.initial.email}}">
+        <label for="inputUsername">Username:</label>
+        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required
+            value="{{account_form.initial.username}}">
+
+        {% for field in account_form %}
+        <p>
+            {% for error in field.errors %}
+            <p class="error-message">{{ error }}</p>
+            {% endfor %}
+        </p>
+        {% endfor %}
+        {% if account_form.non_field_errors %}
+        <div class="error-message">
+            <p>{{account_form.non_field_errors}}</p>
+        </div>
+        {% endif %}
+
+        {% if success_message %}
+            <p style="color: green; text-align: center;">{{success_message}}</p>
+        {% endif %}
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Save changes</button>
+    </form>
+</div>
+{% endblock content %}

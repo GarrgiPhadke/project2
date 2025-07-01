@@ -1,0 +1,130 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html>
+<body>
+    {% load static %}
+     <!-- Desktop Section -->
+     <section class="text-gray-600 body-font hidden md:flex">
+      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center -mt-16">
+        <div class="lg:max-w-md lg:w-64 xs:w-3/5 w-4/5 mb-10 md:mb-0">
+          <img class="object-cover object-center rounded" alt="hero" src="{% static 'abouts1.jpg' %}">
+        </div>      
+        <div class="lg:flex-grow md:w-1/2 lg:pl-15 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+          <h1 class="title-font text-[18px] -mt-2 mb-4 font-medium text-gray-900">About Us</h1>
+          <p class="mb-8 leading-relaxed text-[16px]">
+            The Architectural Interior Design Firm “THE DESIGN ASPECT” Was Established In 2016 By Darshit Tank.<br>
+Our Priorities When Creating Spaces Are The Following:<br>
+Harmony With The Surrounding Environment, An Intuitive Approach To The Functions Of The Future Site,<br>
+A Clarity For The Layout Plan, A Balanced And Consistent Aesthetic Awareness, And Exciting Visual Attractivity.<br>
+To Achieve These Goals And Create Social Value, We Conduct Meetings With Our Clients And Research The Site.<br>
+We Do Not Offer Designs Of Half-Baked Quality. We Are Extremely Particular About The Design And Refine It Until We Achieve <br>A Quality That Satisfies You. We Carefully Examine Each Space And Propose New Possibilities By Designing And Selecting Appropriate Materials, Furniture, Fixtures, Lighting, And Artwork.<br>
+We Operate In All Sectors Of Building Industry From Hotels, Showrooms, Health Care, Offices To Residences Architectural And Interior Design Projects
+          </p>
+        </div>
+      </div>
+    </section>
+
+       <!-- Mobile Section -->
+       <section class="text-gray-600 body-font block md:hidden">
+        <div class="container mx-auto flex flex-col px-5 py-10 items-center">
+          <div class="w-3/4 mb-5">
+            <img class="object-cover object-center rounded" alt="hero" src="{% static 'abouts1.jpg' %}">
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <h1 class="title-font text-[18px] mb-2 font-medium text-gray-900">About Us</h1>
+            <p class="text-[16px] leading-relaxed text-left px-4 md:px-8">
+              The Architectural Interior Design Firm “THE DESIGN ASPECT” Was Established In 2016 By Darshit Tank.
+              Our Priorities When Creating Spaces Are The Following:<br>
+              Harmony With The Surrounding Environment, An Intuitive Approach To The Functions Of The Future Site,
+              A Clarity For The Layout Plan, A Balanced And Consistent Aesthetic Awareness, And Exciting Visual Attractivity.
+              To Achieve These Goals And Create Social Value, We Conduct Meetings With Our Clients And Research The Site.
+              We Do Not Offer Designs Of Half-Baked Quality. We Are Extremely Particular About The Design And Refine It Until We Achieve
+              A Quality That Satisfies You. We Carefully Examine Each Space And Propose New Possibilities By Designing And Selecting Appropriate Materials, Furniture, Fixtures, Lighting, And Artwork.
+              We Operate In All Sectors Of Building Industry From Hotels, Showrooms, Health Care, Offices To Residences Architectural And Interior Design Projects.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- About us personal info -->
+      <!-- Desktop Section -->
+<section id="desktop-section" class="text-gray-600 body-font">
+  <div class="container mx-auto flex px-5 py-0 md:flex-row flex-col items-center">
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-8 md:mb-16 items-end text-left ">
+      <p class="mb-8 leading-relaxed text-[16px]">Darshit Believes That Space Create The Memories And Experiences Of The People Who Visit There.He Wants To Create A Space That Leaves Pleasant Memories And Experiences In People’s Hearts. His Mission Is To Design Spaces That Are Better, <br>More Comfortable And Creative. He Always Strive To Provide New Values In Space.
+      </p>
+    </div>
+    <div class="lg:max-w-sm lg:w-56 xs:w-1/2 w-3/4 mb-10 md:mb-6 -mt-24 ">
+      <img class="object-cover object-center -ml-4 rounded" alt="hero" src="{% static 'abouts3.jpg' %}">
+      <h2 class="font-bold">Darshit Tank</h2>
+      <h2 class="font-bold">Founder & Head Designer</h2>
+    </div>
+  </div>
+</section>
+      <!-- Mobile Section -->
+<section id="mobile-section" class="text-gray-600 body-font">
+  <div class="container mx-auto flex px-5 py-0 md:flex-row flex-col items-center">
+    <!-- Image Section -->
+    <div class="lg:max-w-md lg:w-64 xs:w-3/5 w-4/5 mb-10 md:mb-0">
+      <img class="object-cover object-center rounded mb-4" alt="hero" src="{% static 'abouts3.jpg' %}">
+      <h2 class="font-bold text-[16px] text-center">Darshit Tank</h2>
+      <h2 class="font-bold text-[16px] text-center">Founder & Head Designer</h2>
+    </div> 
+
+    <!-- Text Section -->
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left items-start text-left mb-8">
+      <p class="leading-relaxed text-lg">Darshit Believes That Space Create The Memories And Experiences Of The People Who Visit There. He Wants To Create A Space That Leaves Pleasant Memories And Experiences In People’s Hearts.
+        His Mission Is To Design Spaces That Are Better, More Comfortable And Creative. He Always Strives To Provide New Values In Space.
+      </p>
+    </div>
+  </div>
+</section>
+<script>
+
+  // header
+  document.getElementById('menu-button').addEventListener('click', function() {
+    document.getElementById('menu-mobile').classList.toggle('hidden');
+  });
+
+  document.getElementById('close-menu').addEventListener('click', function() {
+    document.getElementById('menu-mobile').classList.add('hidden');
+  });
+  
+  //personal info
+  document.addEventListener("DOMContentLoaded", function() {
+    function toggleSections() {
+      const mobileSection = document.getElementById("mobile-section");
+      const desktopSection = document.getElementById("desktop-section");
+  
+      if (window.innerWidth < 768) {
+        mobileSection.style.display = "block";
+        desktopSection.style.display = "none";
+      } else {
+        mobileSection.style.display = "none";
+        desktopSection.style.display = "block";
+      }
+    }
+  
+    // Run the function on page load
+    toggleSections();
+  
+    // Run the function on window resize
+    window.addEventListener("resize", toggleSections);
+  }); 
+    // Check if screen width is larger than 1024px (common desktop size)
+    function updateViewport() {
+      const viewport = document.querySelector('meta[name="viewport"]');
+      
+      if (window.innerWidth > 768) {  // If screen width is larger than 768px (desktop)
+          viewport.setAttribute('content', 'width=device-width, initial-scale=1.25, maximum-scale=1.25, minimum-scale=1.25, user-scalable=no');
+      } else {
+          // Reset to the mobile viewport for smaller screens
+          viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+      }
+  }
+
+  window.addEventListener('resize', updateViewport);
+  window.addEventListener('load', updateViewport);
+</script>
+</body>
+</html>

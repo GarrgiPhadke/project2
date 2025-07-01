@@ -1,0 +1,277 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html>
+<body>
+  <section class="mt-6">
+  <!-- Mobile Layout (hidden on larger screens) -->
+<div class="container px-5 py-0 mx-auto flex flex-col md:hidden" id="mobile-contact-container">
+  <!-- Form Section (Appears First on Mobile) -->
+  <div class="lg:w-full md:w-1/2 bg-white flex flex-col w-full py-8 ">
+    <div class="flex items-center space-x-8 icon-container -mt-8 mb-8">
+       <!-- WhatsApp -->
+ <a href="https://wa.me/919819651516" class="whatsapp-link" target="_blank">
+  <img src="{% static 'whatsapp.png' %}" alt="WhatsApp" class="w-6 h-6">
+</a>
+
+<!-- Email -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=your-info@thedesignaspect.com" class="email-link" target="_blank" rel="noopener">
+ <img src="{% static 'email.png' %}" alt="Email" class="w-6 h-6">
+</a>
+
+
+<!-- Call -->
+<a href="tel:+919819651516" class="call-link">
+  <img src="{% static 'call.png' %}" alt="Call" class="w-6 h-6">
+</a>
+
+<!-- Instagram -->
+<a href="https://www.instagram.com/the_design_aspect/profilecard/?igsh=MTR3djl2anJtb3Jqbg==" class="instagram-link" target="_blank">
+  <img src="{% static 'insta.png' %}" alt="Instagram" class="w-6 h-6">
+</a>
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/profile.php?id=61568302332193&mibextid=ZbWKwL" class="facebook-link" target="_blank">
+    <img src="{% static 'face.png' %}" alt="Facebook" class="w-6 h-6">
+  </a>
+
+<!-- LinkedIn -->
+<a href="https://www.linkedin.com/in/darshit-tank-49048a335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="linkedin-link" target="_blank">
+  <img src="{% static 'image.png' %}" alt="LinkedIn" class="w-8 h-8 mt-2">
+</a>
+
+
+   </div>
+    <h2 class="text-gray-900 text-lg mb-4 font-medium title-font">CONTACT US</h2>
+    <form action="/contact/contact/" method="post">
+      {% csrf_token %}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="relative">
+          <label for="name" class="leading-7 text-xs text-gray-600">NAME</label>
+          <input type="text" id="name" name="name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative">
+          <label for="email" class="leading-7 text-xs text-gray-600">EMAIL</label>
+          <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="relative">
+          <label for="phone" class="leading-7 text-xs text-gray-600">PHONE</label>
+          <input type="phone" id="phone" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative">
+          <label for="location" class="leading-7 text-xs text-gray-600">LOCATION</label>
+          <input type="location" id="location" name="location" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+      </div>
+      <div class="relative mb-4">
+        <label for="message" class="leading-7 text-xs text-gray-600">MESSAGE</label>
+        <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+      </div>
+      <button class="text-white bg-black border-0 py-2 px-6 focus:outline-none hover:bg-black rounded text-lg">Submit</button>
+    </form>
+  </div>
+
+  <!-- Contact Information Section -->
+  <div class="lg:w-1/3 md:w-1/2 bg-white-300 rounded-lg overflow-hidden p-2 flex items-start justify-start relative mt-8 md:mt-0 md:ml-10 ">
+    <div class="bg-white relative flex flex-col py-6 rounded shadow-md">
+      <div class="px-6 mb-4">
+        <h2 class="text-black text-sm mb-0  title-font">PHONE</h2>
+        <p class="leading-relaxed">+91 9819651516</p>
+      </div>
+      <div class="px-6 mb-4">
+        <h2 class="text-gray-900 text-sm mb-0 font-medium title-font">EMAIL</h2>
+        <a class="text-indigo-500 leading-relaxed">info@thedesignaspect.com</a>
+      </div>
+      <div class="px-6">
+        <h2 class="text-gray-900 text-sm mb-0 font-medium title-font">ADDRESS</h2>
+        <p class="leading-7 text-xs text-gray-600">09 - MOHANLAL MANSION,</p>
+        <p class="leading-7 text-xs text-gray-600">Opp. Maheshwaeri Garden,</p>
+        <p class="leading-7 text-xs text-gray-600">Matunga - East</p>
+        <p class="leading-7 text-xs text-gray-600">Mumbai - 400019</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Desktop Layout (hidden on smaller screens) -->
+<div class="container px-5 py-0 mx-auto hidden md:flex" id="desktop-contact-container">
+  <div class="lg:w-1/3 md:w-1/2 -ml-8 bg-white-300 rounded-lg overflow-hidden sm:mr-10 p-2 flex items-start justify-start relative mt-4">
+    <div class="bg-white relative flex flex-col py-6 rounded shadow-md">
+      <div class="px-6 mb-4">
+        <h2 class="text-black text-base mb-0  title-font">PHONE</h2>
+        <p class="leading-7 text-base text-gray-600">+91 9819651516</p>
+      </div>
+      <div class="px-6 mb-4">
+        <h2 class="text-gray-900 text-base mb-0 font-medium title-font">EMAIL</h2>
+        <a class="text-indigo-500 text-sm leading-relaxed">info@thedesignaspect.com</a>
+      </div>
+      <div class="px-6">
+        <h2 class="text-gray-900 text-base mb-0 font-medium title-font">ADDRESS</h2>
+        <p class="leading-7 text-sm text-gray-600">09 - MOHANLAL MANSION,</p>
+        <p class="leading-7 text-sm text-gray-600"> OPP. MAHESHWAERI GARDEN,</p>
+        <p class="leading-7 text-sm text-gray-600">MATUNGA - EAST</p>
+        <p class="leading-7 text-sm text-gray-600">MUMBAI - 400019</p>
+      </div>
+    </div>
+  </div>
+    <!-- the space in given using icon-container -->
+    <div class="w-[550px] bg-white flex flex-col mt-4 -ml-32">
+
+
+    <div class="flex items-center space-x-12 icon-container">
+        <!-- WhatsApp -->
+ <a href="https://wa.me/919819651516" class="whatsapp-link" target="_blank">
+  <img src="{% static 'whatsapp.png' %}" alt="WhatsApp" class="w-7 h-7">
+</a>
+
+<!-- Email -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=your-info@thedesignaspect.com" class="email-link" target="_blank" rel="noopener">
+ <img src="{% static 'email.png' %}" alt="Email" class="w-7 h-7">
+</a>
+
+
+<!-- Call -->
+<a href="tel:+919819651516" class="call-link">
+  <img src="{% static 'call.png' %}" alt="Call" class="w-7 h-7">
+</a>
+
+<!-- Instagram -->
+<a href="https://www.instagram.com/the_design_aspect/profilecard/?igsh=MTR3djl2anJtb3Jqbg==" class="instagram-link" target="_blank">
+  <img src="{% static 'insta.png' %}" alt="Instagram" class="w-7 h-7">
+</a>
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/profile.php?id=61568302332193&mibextid=ZbWKwL" class="facebook-link" target="_blank">
+    <img src="{% static 'face.png' %}" alt="Facebook" class="w-7 h-7">
+  </a>
+
+<!-- LinkedIn -->
+<a href="https://www.linkedin.com/in/darshit-tank-49048a335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="linkedin-link" target="_blank">
+  <img src="{% static 'image.png' %}" alt="LinkedIn" class="w-9 h-9 mt-2">
+</a>
+
+
+    </div>
+    <h2 class="text-gray-900 text-lg mb-0 font-medium title-font">CONTACT US</h2>
+
+    {% if errors %}
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+      <strong class="font-bold">Oops!</strong>
+      <span class="block sm:inline">There were some problems with your input:</span>
+      <ul class="mt-2 ml-4 list-disc list-inside">
+        {% for error in errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if success %}
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+      <strong class="font-bold">Success!</strong>
+      <span class="block sm:inline">Your message has been sent successfully!</span>
+    </div>
+  {% endif %}
+
+    <form action="/contact/contact/" method="post">
+      {% csrf_token %}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="relative">
+          <label for="name" class="leading-7 text-xs text-gray-600">NAME <span class="text-red-500">*</span></label>
+          <input type="text" id="name" name="name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative">
+          <label for="email" class="leading-7 text-xs text-gray-600">EMAIL <span class="text-red-500">*</span></label>
+          <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="relative">
+          <label for="phone" class="leading-7 text-xs text-gray-600">PHONE <span class="text-red-500">*</span></label>
+          <input type="phone" id="phone" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative">
+          <label for="location" class="leading-7 text-xs text-gray-600">LOCATION</label>
+          <input type="location" id="location" name="location" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+      </div>
+      <div class="relative mb-4">
+        <label for="message" class="leading-7 text-xs text-gray-600">MESSAGE</label>
+        <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-24 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+      </div>
+      <button class="text-white bg-black border-0 py-2 px-6 focus:outline-none hover:bg-black rounded text-lg">Submit</button>
+    </form>
+  </div>
+
+
+   <!-- Centered Square Map with Rounded Corners -->
+   <div class="w-[550px] bg-white flex flex-col mt-4 ml-4 -mr-8">
+
+
+<iframe
+  src="https://maps.google.com/maps?width=100%&height=800&hl=en&q=Mohanlal%20Mansion,%20Opp.%20Maheshwari%20Garden,%20Matunga%20East,%20Mumbai%20400019&ie=UTF8&t=&z=17&iwloc=B&output=embed"
+  width="100%"
+  height="450"
+  class="rounded-lg"
+  frameborder="0"
+  scrolling="yes"
+  marginheight="0"
+  marginwidth="0"
+  title="map">
+</iframe>
+
+
+
+
+</div>
+</div>
+<script>
+  // Header
+  document.getElementById('menu-button').addEventListener('click', function() {
+    document.getElementById('menu-mobile').classList.toggle('hidden');
+  });
+
+  document.getElementById('close-menu').addEventListener('click', function() {
+    document.getElementById('menu-mobile').classList.add('hidden');
+  });
+  // Function to toggle visibility based on screen size
+function toggleLayout() {
+  const mobileLayout = document.getElementById('mobile-contact-container');
+  const desktopLayout = document.getElementById('desktop-contact-container');
+
+  if (window.innerWidth >= 768) {
+    mobileLayout.classList.add('hidden');
+    desktopLayout.classList.remove('hidden');
+  } else {
+    mobileLayout.classList.remove('hidden');
+    desktopLayout.classList.add('hidden');
+  }
+}
+
+// Initial call to set the correct layout
+toggleLayout();
+
+// Listen for resize events to update the layout dynamically
+window.addEventListener('resize', toggleLayout);
+
+  // Check if screen width is larger than 1024px (common desktop size)
+  function updateViewport() {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    
+    if (window.innerWidth > 768) {  // If screen width is larger than 768px (desktop)
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.25, maximum-scale=1.25, minimum-scale=1.25, user-scalable=no');
+    } else {
+        // Reset to the mobile viewport for smaller screens
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    }
+}
+
+window.addEventListener('resize', updateViewport);
+window.addEventListener('load', updateViewport);
+</script>
+
+
+</body>
+</html>
