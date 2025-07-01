@@ -1,0 +1,81 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html>
+<body>
+  <!-- Mobile View -->
+<section class="text-gray-600 body-font -mt-16 sm:hidden block">
+  <div class="container mx-auto flex px-5 py-24 flex-col items-center">
+      {% load static %}
+      <img class="object-cover object-center rounded w-5/6 mb-5" alt="hero" src="{% static 'Interior.jpg' %}">
+      <div class="flex flex-col items-center text-center">
+          <small>Our Services</small>
+          <h1 class="title-font text-base mb-4 font-medium text-gray-900">Interior Designing</h1>
+          <p class="text-base leading-relaxed text-left tracking-wide">
+            A Truly Crafted Life Is All About Expressing Your Thought, Lifestyle, And Identity Through The Work Of Art. As The Creator Who Appreciates Every Single Detail And Quality, We Refresh The Way Of Living By Designing A Brand New Experience With Long Lasting Value At Its Finest.
+         We Have A Team Of Interior Designers Who Are Not Only Talented But Also Have A Lot Of Experience. Our Core Service Portfolio Prominently Features Interior Design And Services, Catering To Diverse Briefs, Scales, And Industries, Spanning From Residential To Commercial Projects, Encompassing Private Residences To Expansive Showrooms, Our Steadfast Commitment Lies In Crafting People-Centric And Brand-Driven Designs Across Every Project Undertaken.
+           <br> • How Important Is Interior Design Services?
+           <br>Interior Design Services Hold Significant Importance In Shaping The Functionality, Aesthetics, And Overall Ambiance Of Various Spaces. Beyond Merely Enhancing Visual Appeal, Interior Designers Adeptly Optimize Spatial Layouts, Ensuring Efficient And Ergonomic Arrangements. Moreover, These Professionals Engage Closely With Clients To Infuse Spaces With Personalized Elements That Reflect Individual Tastes And Lifestyles. The Impact Of Interior Design Extends Beyond Personalization; It Also Adds Tangible Value To Properties.
+            Furthermore, Well-Designed Interiors Contribute To Improved Quality Of Life, Fostering Comfort, Productivity, And Emotional Well-Being. In Commercial Settings, Interior Design Plays A Pivotal Role In Shaping Brand Identity And Customer Experience, While Sustainable Design Practices Address Environmental Concerns.
+          </p>
+          <a href="{% url 'booking' %}" class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-[#D2B48C] rounded text-xs mt-6">
+              START MY PROJECT
+          </a>
+      </div>
+  </div>
+</section>
+
+<!-- Desktop View -->
+<section class="text-gray-600 body-font mt-10 hidden sm:block">
+  <div class="container mx-auto flex px-5 py-0 md:flex-row flex-col items-start">
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+      {% load static %}
+      <img class="object-cover object-center h-[580px] rounded" alt="hero" src="{% static 'Interior.jpg' %}">
+    </div>
+    <div class="flex flex-col lg:flex-grow md:w-1/2 lg:pl-6 md:pl-6 md:items-start md:text-left items-center text-center justify-start min-h-screen">
+      <small>Our Services</small>
+      <h1 class="title-font sm:text-[18px] text-base mb-4 font-medium text-gray-900">Interior Designing</h1>
+      <p class="text-[16px] leading-relaxed text-left">
+        A Truly Crafted Life Is All About Expressing Your Thought, Lifestyle, And Identity Through The Work Of Art. As The Creator Who Appreciates Every Single Detail And Quality, We Refresh The Way Of Living By Designing A Brand New Experience With Long Lasting Value At Its Finest.
+        We Have A Team Of Interior Designers Who Are Not Only Talented But Also Have A Lot Of Experience. Our Core Service Portfolio Prominently Features Interior Design And Services, Catering To Diverse Briefs, Scales, And Industries, Spanning From Residential To Commercial Projects, Encompassing Private Residences To Expansive Showrooms, Our Steadfast Commitment Lies In Crafting People-Centric And Brand-Driven Designs Across Every Project Undertaken.
+        <br> • How Important Is Interior Design Services?
+        <br>Interior Design Services Hold Significant Importance In Shaping The Functionality, Aesthetics, And Overall Ambiance Of Various Spaces. Beyond Merely Enhancing Visual Appeal, Interior Designers Adeptly Optimize Spatial Layouts, Ensuring Efficient And Ergonomic Arrangements. Moreover, These Professionals Engage Closely With Clients To Infuse Spaces With Personalized Elements That Reflect Individual Tastes And Lifestyles. The Impact Of Interior Design Extends Beyond Personalization; It Also Adds Tangible Value To Properties.
+        Furthermore, Well-Designed Interiors Contribute To Improved Quality Of Life, Fostering Comfort, Productivity, And Emotional Well-Being. In Commercial Settings, Interior Design Plays A Pivotal Role In Shaping Brand Identity And Customer Experience, While Sustainable Design Practices Address Environmental Concerns.
+      </p><br>
+      <a href="{% url 'booking' %}" class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-[#D2B48C] rounded text-xs mt-12 md:mt-0">
+        START MY PROJECT
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <script>
+      // for menu botton
+      document.getElementById('menu-button').addEventListener('click', function() {
+        document.getElementById('menu-mobile').classList.toggle('hidden');
+      });
+    
+      document.getElementById('close-menu').addEventListener('click', function() {
+        document.getElementById('menu-mobile').classList.add('hidden');
+      });
+    // Toggle dropdown visibility on click
+    document.querySelector('.dropdown-button').addEventListener('click', function() {
+      document.querySelector('.dropdown-content').classList.toggle('hidden');
+  });
+       // Check if screen width is larger than 1024px (common desktop size)
+       function updateViewport() {
+        const viewport = document.querySelector('meta[name="viewport"]');
+        
+        if (window.innerWidth > 768) {  // If screen width is larger than 768px (desktop)
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.25, maximum-scale=1.25, minimum-scale=1.25, user-scalable=no');
+        } else {
+            // Reset to the mobile viewport for smaller screens
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+    }
+
+    window.addEventListener('resize', updateViewport);
+    window.addEventListener('load', updateViewport);
+</script>
+</body>
+</html>

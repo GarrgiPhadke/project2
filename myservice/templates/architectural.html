@@ -1,0 +1,107 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html>
+<body>
+ <!-- For desktop -->
+ <section class="text-gray-600 body-font mt-10 desktop-view">
+  <div class="container mx-auto flex px-5 py-0 md:flex-row flex-col items-start">
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+      {% load static %}
+      <img class="object-cover object-center rounded" alt="hero" src="{% static 'arc.png' %}">
+    </div>
+    <div class="flex flex-col lg:flex-grow md:w-1/2 lg:pl-6 md:pl-6 md:items-start md:text-left items-center text-center justify-start min-h-screen">
+      <small>Our Services</small>
+      <h1 class="title-font sm:text-[18px] text-base mb-4 font-medium text-gray-900">Architectural Designing</h1>
+      <p class="text-[16px] leading-relaxed text-left">
+        The Design Aspect Believes The Architecture Is Originated From A Perfect Mixture Of Beautiful Aesthetic Senses And Functional Usability Occurred Through Thinking Process, Analysis And Connections Based On Different Conditions And Contexts Which Are Surrounded In Every Dimension Of Each Specific Location. Nature, Society, Culture, Behaviour, Taste And Time Are Reflected In A Unique Architectural Work. Every Piece Of The Design Aspect Creation Is Like A Research Combining Science And Art Together To Bring Out Proper Design Efficiency To Create A Sense Of Place Which Will Lead To Positive Changes And Expand To The Whole Society.
+        <br><br>
+        With Our Professional Team, We Deliver Wide Range Of Building. The Aesthetic, The Character, The Structure, The Function, The Surrounding, We Thoroughly Build Every Part Of It In The Way Of Visionary Architect Who Always Bring You The Best Of The Best For The Sustainable Future.
+      </p>
+      <br>
+      <div class="space-x-10">
+        <a href="{% url 'booking' %}" class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-[#D2B48C] rounded text-xs mt-12 md:mt-0">
+          START MY PROJECT
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- For mobile -->
+<section class="text-gray-600 body-font -mt-16 mobile-view" style="display: none;">
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+      {% load static %}
+      <img class="object-cover object-center rounded" alt="hero" src="{% static 'arc.png' %}">
+    </div>
+    <div class="lg:flex-grow md:w-1/2 lg:pl-6 md:pl-6 flex flex-col md:items-start md:text-left items-center text-center ">
+      <small>Our Services</small>
+      <h1 class="title-font sm:text-base text-base mb-4 font-medium text-gray-900">Architectural Designing</h1>
+      <p class="text-base leading-relaxed text-left tracking-wide">
+        The Design Aspect Believes The Architecture Is Originated From A Perfect Mixture Of Beautiful Aesthetic Senses And Functional Usability Occurred Through Thinking Process, Analysis And Connections Based On Different Conditions And Contexts Which Are Surrounded In Every Dimension Of Each Specific Location. Nature, Society, Culture, Behaviour, Taste And Time Are Reflected In A Unique Architectural Work. Every Piece Of The Design Aspect Creation Is Like A Research Combining Science And Art Together To Bring Out Proper Design Efficiency To Create A Sense Of Place Which Will Lead To Positive Changes And Expand To The Whole Society.
+        <br><br>
+        With Our Professional Team, We Deliver Wide Range Of Building. The Aesthetic, The Character, The Structure, The Function, The Surrounding, We Thoroughly Build Every Part Of It In The Way Of Visionary Architect Who Always Bring You The Best Of The Best For The Sustainable Future.
+      </p>
+      
+      <div class="space-x-10">
+        <a href="{% url 'booking' %}" class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-[#D2B48C] rounded text-xs mt-12 md:mt-0">
+          START MY PROJECT
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript to toggle views -->
+<script>
+  function toggleSections() {
+    const desktopSection = document.querySelector('.desktop-view');
+    const mobileSection = document.querySelector('.mobile-view');
+
+    if (window.innerWidth < 768) {
+      desktopSection.style.display = 'none';
+      mobileSection.style.display = 'block';
+    } else {
+      desktopSection.style.display = 'block';
+      mobileSection.style.display = 'none';
+    }
+  }
+
+  // Initial check
+  toggleSections();
+
+  // Check on resize
+  window.addEventListener('resize', toggleSections);
+</script>
+
+  <script>
+            // for menu botton
+        document.getElementById('menu-button').addEventListener('click', function() {
+          document.getElementById('menu-mobile').classList.toggle('hidden');
+        });
+      
+        document.getElementById('close-menu').addEventListener('click', function() {
+          document.getElementById('menu-mobile').classList.add('hidden');
+        });
+          // Toggle dropdown visibility on click
+          document.querySelector('.dropdown-button').addEventListener('click', function() {
+            document.querySelector('.dropdown-content').classList.toggle('hidden');
+        });
+            // Check if screen width is larger than 1024px (common desktop size)
+      function updateViewport() {
+        const viewport = document.querySelector('meta[name="viewport"]');
+        
+        if (window.innerWidth > 768) {  // If screen width is larger than 768px (desktop)
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.25, maximum-scale=1.25, minimum-scale=1.25, user-scalable=no');
+        } else {
+            // Reset to the mobile viewport for smaller screens
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+    }
+
+    window.addEventListener('resize', updateViewport);
+    window.addEventListener('load', updateViewport);
+  </script>
+
+</body>
+</html>
