@@ -1,0 +1,297 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html>
+<body>
+  <!-- Hero and text section for desktop -->
+  <section id="desktop-section" class="text-gray-500 body-font hidden flex justify-end items-center py-1 -mt-6 -ml-6">
+
+    <div class="container mx-auto flex px-4 md:py-10 md:flex-row flex-col items-center justify-end ml-auto">
+      <div class="lg:max-w-3xl lg:w-full md:w-full w-full flex justify-center mr-16"> 
+        {% load static %}
+        <img class="object-cover object-center rounded w-full h-auto lg:w-[700px] lg:h-[450px]" alt="hero" src="{% static 'mainbg.jpg' %}">
+    </div>
+    
+    
+    
+    
+      
+      <div class="lg:flex-grow md:w-8/12 lg:pr-4 md:pr-4 flex flex-col md:text-center items-center text-center relative">
+        <h1 class="title-font lg:text-md text-lg lg-4 font-medium text-gray-900">
+          WELCOME TO 
+          <br class="hidden lg:inline-block text-lg">THE DESIGN ASPECT 
+        </h1>
+        
+        <p class="mb-2 leading-relaxed text-sm md:text-center mt-2">  
+          A LEADING ARCHITECTURAL INTERIOR DESIGN FIRM IN MUMBAI.<br>
+          WE DON'T JUST DESIGN SPACES,<br>
+          WE TRANSFORM YOUR INEVITABLE DREAM INTO REALITY.
+        </p>
+      
+        <!-- Fixed button container BELOW the text, keeping buttons side by side -->
+        <div class="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-10 w-full flex justify-center space-x-4">
+          <button class="inline-flex items-center justify-center text-black bg-[#CFC4B2] border-0 py-2 h-8 focus:outline-none hover:bg-[#D2B48C] rounded text-xs text-center w-64">
+            <a href="{% url 'booking' %}">TALK TO OUR DESIGN EXPERT</a>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+          <button class="inline-flex items-center justify-center text-black bg-[#CFC4B2] border-0 py-2 h-8 focus:outline-none hover:bg-[#D2B48C] rounded text-xs text-center w-64 ">
+            <a href="{% url 'booking' %}" class="w-full text-center -mr-4 ">MEET OUR DESIGN EXPERT</a>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-6" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>          
+          
+        </div>
+      </div>
+    </div> 
+  
+  </section>
+  
+<!-- Hero and text section for mobile -->
+<section id="mobile-section" class="text-gray-500 body-font hidden ">       
+  <div class="container mx-auto flex px-2 md:py-6 md:flex-row flex-col items-center ">
+    <div class="lg:max-w-2xl lg:w-full md:w-full w-full"> 
+        {% load static %}
+        <img class="object-cover object-center rounded w-full h-auto" alt="hero" src="{% static 'mainbg.jpg' %}">
+    </div>
+    <div class="lg:flex-grow md:w-1/2 lg:pr-15 md:pr-16 flex flex-col md:text-center items-center text-center mb-12 md:mb-0 lg:ml-16 mt-10">
+      <h1 class="title-font sm:text-sm text-sm mb-4 font-medium text-gray-900">
+        WELCOME TO 
+          <br class="hidden lg:inline-block text-sm">THE DESIGN ASPECT 
+      </h1>
+      
+      <p class="mb-8 leading-relaxed text-xs md:text-center">  
+        A LEADING ARCHITECTURAL INTERIOR DESIGN FIRM IN MUMBAI.<br>
+        WE DON'T JUST DESIGN SPACES,<br>
+        WE TRANSFORM YOUR INEVITABLE DREAM INTO REALITY.
+      </p>
+      <div class="flex justify-center -mt-6">
+        <button class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-[10px] ml-2">
+          <a href="{% url 'booking' %}">TALK TO OUR DESIGN EXPERT</a>
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+      </button>
+      <button class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-[10px] ml-3">
+          <a href="{% url 'booking' %}">MEET OUR DESIGN EXPERT</a>
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+      </button>
+
+    </div>
+    </div> 
+  </div>
+</section>
+
+     <!-- Desktop The section of steps for booking -->
+     <section id="booking-steps-desktop" class="text-gray-600 body-font hidden -mt-14 py-4">
+
+
+     <div class="container px-5 py-16 mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-base text-black">
+         YOUR DREAM SPACE IS 4 SIMPLE STEPS AWAY !
+        </h1>
+      </div>
+          <div class="flex flex-wrap -m-10">
+            <div class="p-4 lg:w-1/4 md:w-1/2">
+              <div class="h-full flex flex-col items-center text-center">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-30 h-30  object-cover object-center mb-4" src="{% static 'step1.jpg' %}">
+                <div class="w-full">
+                  <h4 class=" text-xs  text-gray-900">
+                    <span style="font-size: 14px;">1:</span> BOOK A CONSULTATION</h4>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 lg:w-1/4 md:w-1/2">
+              <div class="h-full flex flex-col items-center text-center">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-30 h-30  object-cover object-center mb-4" src="{% static 'step2.jpg' %}">
+                <div class="w-full">
+                  <h2 class="text-xs text-gray-900"> 
+                    <span style="font-size: 14px;">2:</span> MEET OUR DESIGNERS</h2>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 lg:w-1/4 md:w-1/2">
+              <div class="h-full flex flex-col items-center text-center">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-30 h-30  object-cover object-center mb-4" src="{% static 'step3.jpg' %}">
+                <div class="w-full">
+                  <h2 class="text-xs text-gray-900"> 
+                    <span style="font-size: 14px;">3:</span> PERSONALISE YOUR DESIGNS</h2>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 lg:w-1/4 md:w-1/2">
+              <div class="h-full flex flex-col items-center text-center">
+                <img alt="team" class="flex-shrink-0 rounded-lg w-30 h-30  object-cover object-center mb-4" src="{% static 'step4.jpg' %}">
+                <div class="w-full">
+                  <h2 class="text-xs text-gray-900"> 
+                    <span style="font-size: 14px;">4:</span> MOVE IN</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-center -mt-4 mb-8">
+            <button class="inline-flex items-center bg-[#CFC4B2] text-black border-0 py-1 px-3 text-black focus:outline-none hover:bg-[#D2B48C] rounded text-xs mt-4 md:mt-0">
+                <a href="{% url 'booking' %}">BOOK A FREE CONSULTATION</a>
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button> 
+        </div>
+        
+      </div>
+      </section>
+      <!-- Mobile The section of steps for booking -->
+<section id="booking-steps-mobile" class="text-gray-600 body-font hidden">
+  <div class="text-center mb-12 ">
+    <h1 class="text-base text-black">
+     YOUR DREAM SPACE IS 4 SIMPLE STEPS AWAY !
+    </h1>
+  </div>
+  <div class="container px-5 py-20 mx-auto -mt-20">
+    <div class="flex flex-wrap -m-2 justify-center">
+      <!-- Step 1 -->
+      <div class="p-2 w-1/2 md:w-1/4">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="step1" class="flex-shrink-0 rounded-lg w-44 h-44 object-cover object-center mb-2" src="{% static 'step1.jpg' %}">
+          <div class="w-full">
+            <h4 class="text-xs text-gray-900">
+              <span style="font-size: 14px;">1:</span> BOOK A CONSULTATION
+            </h4>
+          </div>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="p-2 w-1/2 md:w-1/4">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="step2" class="flex-shrink-0 rounded-lg w-44 h-44 object-cover object-center mb-2" src="{% static 'step2.jpg' %}">
+          <div class="w-full">
+            <h4 class="text-xs text-gray-900">
+              <span style="font-size: 14px;">2:</span> MEET OUR DESIGNERS
+            </h4>
+          </div>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="p-2 w-1/2 md:w-1/4">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="step3" class="flex-shrink-0 rounded-lg w-44 h-44 object-cover object-center mb-2" src="{% static 'step3.jpg' %}">
+          <div class="w-full">
+            <h4 class="text-xs text-gray-900">
+              <span style="font-size: 14px;">3:</span> PERSONALISE YOUR DESIGNS
+            </h4>
+          </div>
+        </div>
+      </div>
+      <!-- Step 4 -->
+      <div class="p-2 w-1/2 md:w-1/4">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="step4" class="flex-shrink-0 rounded-lg w-44 h-44 object-cover object-center mb-2" src="{% static 'step4.jpg' %}">
+          <div class="w-full">
+            <h4 class="text-xs text-gray-900">
+              <span style="font-size: 14px;">4:</span> MOVE IN
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="flex justify-center -mt-16 mb-8">
+      <button class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-[#D2B48C] rounded text-xs mt-4 md:mt-0">
+          <a href="{% url 'booking' %}">BOOK A FREE CONSULTATION</a>
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+      </button> 
+  </div>
+  
+</div>
+</section>
+     <!-- javascript for mobile screen -->
+      <script>
+          // for steps for booking
+        function toggleBookingSteps() {
+          const desktopSection = document.getElementById('booking-steps-desktop');
+          const mobileSection = document.getElementById('booking-steps-mobile');
+        
+          if (window.innerWidth >= 1024) { // For desktop screens
+            desktopSection.classList.remove('hidden');
+            mobileSection.classList.add('hidden');
+          } else { // For mobile screens
+            desktopSection.classList.add('hidden');
+            mobileSection.classList.remove('hidden');
+          }
+        }
+        
+        // Run on initial load
+        toggleBookingSteps();
+        
+        // Run on window resize
+        window.addEventListener('resize', toggleBookingSteps);
+        
+             // for hero image and text
+        document.addEventListener("DOMContentLoaded", function() {
+          function toggleSections() {
+              var desktopSection = document.getElementById("desktop-section");
+              var mobileSection = document.getElementById("mobile-section");
+      
+              if (window.innerWidth >= 768) { // Desktop screen size
+                  desktopSection.style.display = "block";
+                  mobileSection.style.display = "none";
+              } else { // Mobile screen size
+                  desktopSection.style.display = "none";
+                  mobileSection.style.display = "block";
+              }
+          }
+      
+          // Run on initial load
+          toggleSections();
+      
+          // Run on window resize
+          window.addEventListener("resize", toggleSections);
+      });
+              // for menu botton
+        document.getElementById('menu-button').addEventListener('click', function() {
+          document.getElementById('menu-mobile').classList.toggle('hidden');
+        });
+      
+        document.getElementById('close-menu').addEventListener('click', function() {
+          document.getElementById('menu-mobile').classList.add('hidden');
+        });
+        //for dropdown list
+       
+          // Toggle dropdown visibility on click
+          document.querySelector('.dropdown-button').addEventListener('click', function() {
+              document.querySelector('.dropdown-content').classList.toggle('hidden');
+          });
+      // Check if screen width is larger than 1024px (common desktop size)
+      function updateViewport() {
+        const viewport = document.querySelector('meta[name="viewport"]');
+        
+        if (window.innerWidth > 768) {  // If screen width is larger than 768px (desktop)
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.25, maximum-scale=1.25, minimum-scale=1.25, user-scalable=no');
+        } else {
+            // Reset to the mobile viewport for smaller screens
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+    }
+   
+    window.addEventListener('resize', updateViewport);
+    window.addEventListener('load', updateViewport);
+    document.body.style.zoom = "100%";
+
+      </script>      
+</body>
+</html>
+{% endblock content %}
+
+

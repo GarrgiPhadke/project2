@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+     <style>body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:white;
+      /*background-image:url('/static/Home.jpg'); Replace 'your-image.jpg' with the path to your image */
+      background-size: cover; /* Cover the entire viewport */
+      background-repeat: no-repeat; /* Prevent the background image from repeating */
+      background-position: center; /* Center the background image */
+     }
+  
+  .whatsapp-icon {
+    width: 75px; /* Increased width */
+    height: 75px; /* Increased height */
+    background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg') no-repeat center center;
+    background-size: contain;
+    display: inline-block;
+}
+.call-link {
+  text-decoration: none;
+  color: #007BFF;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+.call-icon {
+  width: 40px; /* Increase the width of the image */
+  height: 40px; /* Increase the height of the image */
+  vertical-align: middle; /* Align the icon vertically in the middle */
+  margin-right: 8px; /* Add some space to the right of the icon */
+  border-radius: 50%; /* Make the icon round */
+  padding: 4px; /* Optional: Add some padding inside the icon */
+}
+. {
+  font-size: 1px; /* Adjust this value to your preferred size */
+}
+#menu-mobile.custom-size {  /* The container of menu list */
+  width: 80%; /* Custom width */
+  max-width: 500px; /* Custom max width */
+  height: auto; /* Custom height based on content */
+  max-height: 50vh; /* Custom max height */
+}
+
+.scroll-actions {
+  position: fixed;
+  top: 50%;
+  right: 0px; /* Adjust this value to control how close it is to the scrollbar */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust spacing between buttons */
+  z-index: 1000;
+}
+
+.scroll-actions img {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+</style>
+    <title>Project</title>
+</head>
+<body>
+  <header class="text-gray-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-2 items-center justify-between -mt-4 -ml-4">
+
+      {% load static %}
+      <!-- Desktop version -->
+      <a href="{% url 'index' %}" class="hidden md:flex flex-col title-font font-medium items-center ml-8 text-gray-900 mt-4">
+        <img src="{% static 'Name3.png' %}" alt="Logo" class="w-[300px] h-[60px] text-white bg-white">
+      </a>
+      
+      <!-- Mobile version -->
+      <a href="{% url 'index' %}" class="flex md:hidden title-font font-medium items-center text-gray-900 mb-4 md:mb-0 -ml-3 ">
+        <img src="{% static 'Name3.png' %}" alt="Logo" class="w-[300px] h-[9
+        0px] text-white p-2 bg-white">
+      </a>
+       
+  
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="menu-button" class="ml-2 hover:text-red-900 text-black text-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 15 15" xmlns="http://www.w3.org/9000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+  
+      <!-- Mobile navigation menu -->
+      <nav id="menu-mobile" class="fixed inset-0 bg-white border rounded-lg shadow-lg p-4 z-50 hidden custom-size mx-auto mt-8">
+        <button id="close-menu" class="absolute top-10 right-2 text-gray-600 hover:text-gray-900 ">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <ul class="flex flex-col mt-12">
+          <li><a href="{% url 'index' %}" class="block py-2 px-4 text-black hover:text-red-900 text-base">HOME</a></li>
+          <li><a href="{% url 'aboutus' %}" class="block py-2 px-4 text-black hover:text-red-900 text-base">ABOUT US</a></li>
+          <li><a href="{% url 'gallery' %}" class="block py-1 px-4 text-black hover:text-red-700 text-base">GALLERY</a></li>
+          <li> <div class="dropdown"> 
+                 <a class="hover:text-red-900 py-2 px-4 text-black text-base cursor-pointer dropdown-button">SERVICE</a>
+  <div class="dropdown-content hidden">
+      <a href="{% url 'interior' %}" class="hover:text-red-900 text-black text-xs">INTERIOR DESIGNING</a>
+      <a href="{% url 'architectural' %}" class="hover:text-red-900 text-black text-xs">ARCHITECTURAL DESIGNING</a>
+      <a href="{% url 'project' %}" class="hover:text-red-900 text-black text-xs">PROJECT MANAGEMENT</a>
+      <a href="{% url 'visu' %}" class="hover:text-red-900 text-black text-xs">3D VISUALIZATION</a>
+      <a href="{% url 'product' %}" class="hover:text-red-900 text-black text-xs">PRODUCT DESIGNING</a>
+  </div>
+        </div>  </li>
+          <li><a href="{% url 'contact' %}" class="block py-2 px-4 text-black hover:text-red-900 text-base">CONTACT US</a></li>  
+        </ul>
+      </nav>
+
+      <!-- Desktop navigation menu -->
+      <div class="hidden md:flex flex-col md:flex-row items-center space-x-3 mt-14 absolute left-1/2 -translate-x-1/2">
+        <a href="{% url 'index' %}" class="hover:text-red-900 text-black text-xs">HOME</a>
+        <a href="{% url 'aboutus' %}" class="hover:text-red-900 text-black text-xs">ABOUT US</a>
+        <a href="{% url 'gallery' %}" class="hover:text-red-900 text-black text-xs">GALLERY</a>
+        <div class="dropdown">
+          <a class="hover:text-red-900 text-black text-xs cursor-pointer dropdown-button">SERVICE</a>
+          <div class="dropdown-content hidden">
+            <a href="{% url 'interior' %}" class="hover:text-red-900 text-black text-xs">INTERIOR DESIGNING</a>
+            <a href="{% url 'architectural' %}" class="hover:text-red-900 text-black text-xs">ARCHITECTURAL DESIGNING</a>
+            <a href="{% url 'project' %}" class="hover:text-red-900 text-black text-xs">PROJECT MANAGEMENT</a>
+            <a href="{% url 'visu' %}" class="hover:text-red-900 text-black text-xs">3D VISUALIZATION</a>
+            <a href="{% url 'product' %}" class="hover:text-red-900 text-black text-xs">PRODUCT DESIGNING</a>
+          </div>
+        </div>
+        <a href="{% url 'contact' %}" class="hover:text-red-900 text-black text-xs">CONTACT US</a>
+      </div>
+  
+      <!-- Appointment button for desktop -->
+      <div class="hidden md:flex items-center space-x-3 md:space-x-4 mt-10 md:mt-10 absolute mr-4 right-4 top-0">
+        <button class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-[#D2B48C] rounded text-xs">
+          <a href="{% url 'booking' %}" class="text-black">GET FREE ESTIMATE</a>
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+      
+<!-- Line for Mobile Screens -->
+<div class="block md:hidden w-[500px] border-t-[2px] border-[#CFC4B2] -mt-10 md:mb-0 ml-4 -mr-4"></div>
+<!-- Appointment button for mobile -->
+<div class="flex md:hidden items-center space-x-3 md:space-x-4  md:mt-0 -mt-6 ">
+  <button class="inline-flex items-center text-black bg-[#CFC4B2] border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-xs ml-4 mt-12 md:mt-0">
+    <a href="{% url 'booking' %}">GET FREE ESTIMATE</a>
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+      <path d="M5 12h14M12 5l7 7-7 7"></path>
+    </svg>
+  </button>
+</div>
+
+
+        <!-- social icons -->
+        <div id="scroll-actions" class="scroll-actions">
+          <a href="https://wa.me/919819651516" class="whatsapp-link" target="_blank">
+            <img src="{% static 'whatsapp.png' %}" alt="WhatsApp" class="w-20 h-20">
+          </a>
+          <a href="tel:+919819651516" class="call-link">
+            <img src="{% static 'call.png' %}" alt="Call" class="w-6 h-6">
+          </a>
+        </div>  
+      </div>
+    </div> 
+  
+
+<!-- Line for desktop Screens -->
+<div class="hidden md:block max-w-full border-t-[2px] border-[#CFC4B2] -mt-2 md:mb-0 ml-11 mr-8"></div>
+
+
+
+  </header>
